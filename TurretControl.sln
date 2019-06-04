@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurretControl", "TurretCont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrioritySerialCom", "PrioritySerialCom\PrioritySerialCom.csproj", "{AC06F67B-5574-4A71-8473-13BC5ABD5E9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurretLib", "TurretLib\TurretLib.csproj", "{FEC968C0-8966-4AEA-8CF7-9383E98C01C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AC06F67B-5574-4A71-8473-13BC5ABD5E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC06F67B-5574-4A71-8473-13BC5ABD5E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC06F67B-5574-4A71-8473-13BC5ABD5E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC968C0-8966-4AEA-8CF7-9383E98C01C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC968C0-8966-4AEA-8CF7-9383E98C01C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC968C0-8966-4AEA-8CF7-9383E98C01C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC968C0-8966-4AEA-8CF7-9383E98C01C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

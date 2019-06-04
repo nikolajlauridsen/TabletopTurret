@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PrioritySerialCom;
+using TurretLib;
 
 namespace TurretControl
 {
@@ -21,19 +22,21 @@ namespace TurretControl
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Turret turret;
         public MainWindow()
         {
             InitializeComponent();
-            SerialCom com = new SerialCom("COM4", 9600);
 
-            com.Start();
+            turret = new Turret("COM4", 9600);
+            turret.Activate();
 
             for(int i = 0; i<=180; i+=5)
             {
-                com.Write(new PriorityMessage($"m:{i},120",2));
+                turret.Move(i, 120);
             }
 
-            this.Closed += (sender, e) => com.Stop();
+
+            this.Closed += (sender, e) => turret.Deactivate();
         }
 
         

@@ -99,6 +99,10 @@
       <Project>{ac06f67b-5574-4a71-8473-13bc5abd5e9d}</Project>
       <Name>PrioritySerialCom</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TurretLib\TurretLib.csproj">
+      <Project>{fec968c0-8966-4aea-8cf7-9383e98c01c4}</Project>
+      <Name>TurretLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
