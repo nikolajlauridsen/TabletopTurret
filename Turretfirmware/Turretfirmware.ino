@@ -1,16 +1,15 @@
 #include <Servo.h>
 
-char command;
-String data;
-// xAxis = 10;
-// yAxis = 11;
+// Hardware pins
+#define xServo 10
+#define yServo 11
 
-Servo xAxis, yAxis; 
 
+Servo xAxis, yAxis;
 void setup() {
   // put your setup code here, to run once:
-  xAxis.attach(10);
-  yAxis.attach(11);
+  xAxis.attach(xServo);
+  yAxis.attach(yServo);
   Serial.begin(115200);
   Serial.setTimeout(10);
 }
@@ -26,7 +25,8 @@ void serialEvent(){
   }
 }
 
-
+char command;
+String data;
 void parseCommand(String data){
   command = data.charAt(0);
   data = data.substring(2);
