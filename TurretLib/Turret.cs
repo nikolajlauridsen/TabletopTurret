@@ -11,12 +11,14 @@ namespace TurretLib
 {
     public class Turret
     {
+        public int[] TurretPosition { get; }
         public bool IsActive { get; private set; }
         private SerialCom _com;
 
         public Turret(string port, int baud)
         {
             _com = new SerialCom(port, baud);
+            TurretPosition = new int[2];
         }
 
         public void Move(int x, int y, int moveTime)
@@ -30,6 +32,8 @@ namespace TurretLib
         public void Move(int x, int y)
         {
             Move(x, y, 60);
+            TurretPosition[0] = x;
+            TurretPosition[1] = y;
         }
 
         public void Activate()
