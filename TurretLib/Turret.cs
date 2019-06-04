@@ -31,7 +31,7 @@ namespace TurretLib
 
         public void Move(int x, int y)
         {
-            Move(x, y, 60);
+            Move(x, y, 50);
             TurretPosition[0] = x;
             TurretPosition[1] = y;
         }

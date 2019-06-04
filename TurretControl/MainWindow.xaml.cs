@@ -30,8 +30,14 @@ namespace TurretControl
         {
             InitializeComponent();
 
-            turret = new Turret("COM4", 9600);
+            turret = new Turret("COM4", 115200);
             turret.Activate();
+
+            for (int i = 0; i <= 180; i += 5) {
+                {
+                    turret.Move(i, 120); turret.Move(i, 120, 40);
+                }
+            }
 
             ControlArea.MouseMove += RecieveMouseMove;
 

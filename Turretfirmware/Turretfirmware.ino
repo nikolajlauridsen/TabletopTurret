@@ -1,6 +1,6 @@
 #include <Servo.h>
 
-String command;
+char command;
 String data;
 // xAxis = 10;
 // yAxis = 11;
@@ -11,7 +11,7 @@ void setup() {
   // put your setup code here, to run once:
   xAxis.attach(10);
   yAxis.attach(11);
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.setTimeout(50);
 }
 
@@ -28,15 +28,19 @@ void serialEvent(){
 
 
 void parseCommand(String data){
-  command = data.substring(0,data.indexOf(':'));
-  data = data.substring(data.indexOf(':')+1);
-  
-  if(command == "m"){
-    turretMove(data);
-  } else if(command == "sweep"){
-    turretSweep();
-  } else {
-    Serial.println("Invalid command");
+  command = data.charAt(0);
+  data = data.substring(2);
+
+  switch(command){
+    case 'm':
+      turretMove(data);
+    break;
+    case 's':
+      turretSweep();
+    break;
+    default:
+      Serial.println("Invalid command");
+    break;
   }
 }
 

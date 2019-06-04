@@ -15,8 +15,8 @@
 
         <WrapPanel DockPanel.Dock="Top" Margin="10">
             <Label Content="Turret coordinates: " FontSize="14"></Label>
-            <TextBox Text="180" Width="35" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="0,0,10,0" Name="xBox"/>
-            <TextBox Text="0" Width="35" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="yBox"/>
+            <TextBox Text="0" Width="35" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="0,0,10,0" Name="xBox"/>
+            <TextBox Text="180" Width="35" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="yBox"/>
             <Button Margin="10,0,0,0" Height="25" Padding="10,0,10,0" Name="MoveBtn">Move turret</Button>
         </WrapPanel>
 
