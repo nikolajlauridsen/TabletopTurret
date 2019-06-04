@@ -12,7 +12,7 @@ void setup() {
   xAxis.attach(10);
   yAxis.attach(11);
   Serial.begin(115200);
-  Serial.setTimeout(50);
+  Serial.setTimeout(10);
 }
 
 void loop() {
@@ -45,9 +45,11 @@ void parseCommand(String data){
 }
 
 String xCoord, yCoord;
+int splitIndex;
 void turretMove(String coords){
-  xCoord = coords.substring(0,coords.indexOf(','));
-  yCoord = coords.substring(coords.indexOf(',')+1);
+  splitIndex = coords.indexOf(',');
+  xCoord = coords.substring(0, splitIndex);
+  yCoord = coords.substring(splitIndex+1);
   
   xAxis.write(xCoord.toInt());
   yAxis.write(yCoord.toInt());
