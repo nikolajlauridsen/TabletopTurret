@@ -33,12 +33,6 @@ namespace TurretControl
             turret = new Turret("COM4", 115200);
             turret.Activate();
 
-            for (int i = 0; i <= 180; i += 2) {
-                {
-                    turret.Move(i, 120); turret.Move(i, 120, 0);
-                }
-            }
-
             ControlArea.MouseMove += RecieveMouseMove;
 
             this.Closed += (sender, e) => turret.Deactivate();
