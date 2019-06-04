@@ -5,13 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TurretControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="Turret control" Height="500" Width="800">
     <DockPanel>
         <StackPanel DockPanel.Dock="Right" Margin="10">
-            <WrapPanel>
-                <Label>Turret trackpad</Label>
-                <CheckBox  FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right">Active</CheckBox>
-            </WrapPanel>
+            <Label>Turret trackpad</Label>
             <Rectangle Fill="#FFF4F4F5" Height="400" Width="400" Stroke="Black"  Name="ControlArea" />
         </StackPanel>
         
@@ -21,6 +18,11 @@
             <TextBox Text="180" Width="35" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="0,0,10,0" Name="xBox"/>
             <TextBox Text="0" Width="35" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="yBox"/>
             <Button Margin="10,0,0,0" Height="25" Padding="10,0,10,0" Name="MoveBtn">Move turret</Button>
+        </WrapPanel>
+
+        <WrapPanel DockPanel.Dock="Top" Margin="10,0,0,0">
+            <Label FontSize="14">Trackpad active</Label>
+            <CheckBox  FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0" Name="TrackpadCheck" FontSize="14" IsChecked="True"></CheckBox>
         </WrapPanel>
     </DockPanel>
 </Window>

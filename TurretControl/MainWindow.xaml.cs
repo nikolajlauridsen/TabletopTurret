@@ -33,11 +33,6 @@ namespace TurretControl
             turret = new Turret("COM4", 9600);
             turret.Activate();
 
-            for(int i = 0; i<=180; i+=5)
-            {
-                turret.Move(i, 120);
-            }
-
             ControlArea.MouseMove += RecieveMouseMove;
 
             this.Closed += (sender, e) => turret.Deactivate();
@@ -48,15 +43,33 @@ namespace TurretControl
 
             yBox.PreviewTextInput += validateCoordInput;
             yBox.PreviewKeyDown += filterSpace;
-            MoveBtn.Click += (sender, args) =>
+            MoveBtn.Click += (sender, args) => MoveToCoordinates();
+
+            this.KeyUp += HandleKeyUp;
+        }
+
+        public void HandleKeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
             {
-                if (xBox.Text != "" && yBox.Text != "") turret.Move(int.Parse(xBox.Text), int.Parse(yBox.Text));
-            };
+                case Key.Enter:
+                    MoveToCoordinates();
+                    break;
+                case Key.Escape:
+                    if (TrackpadCheck.IsChecked == true) TrackpadCheck.IsChecked = false;
+                    else TrackpadCheck.IsChecked = true;
+                    break;
+            }
+        }
+
+        public void MoveToCoordinates()
+        {
+            if (xBox.Text != "" && yBox.Text != "") turret.Move(int.Parse(xBox.Text), int.Parse(yBox.Text));
         }
 
         public void RecieveMouseMove(object sender, MouseEventArgs e)
         {
-            if (watch.ElapsedMilliseconds > 100)
+            if (watch.ElapsedMilliseconds > 100 && TrackpadCheck.IsChecked == true)
             {
                 Point cursor = e.GetPosition(ControlArea);
                 int x = (int)(180 * (cursor.X / ControlArea.Width));
