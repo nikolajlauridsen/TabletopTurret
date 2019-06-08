@@ -44,6 +44,7 @@ namespace TurretControl
             yBox.PreviewTextInput += validateCoordInput;
             yBox.PreviewKeyDown += filterSpace;
             MoveBtn.Click += (sender, args) => MoveToCoordinates();
+            ControlArea.MouseDown += (sender, args) => turret.Fire();
 
             this.KeyUp += HandleKeyUp;
         }

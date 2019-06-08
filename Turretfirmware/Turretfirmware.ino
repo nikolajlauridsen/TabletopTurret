@@ -3,13 +3,17 @@
 // Hardware pins
 #define xServo 10
 #define yServo 11
+#define firePin 2
 
 
 Servo xAxis, yAxis;
+bool cannonOn = false;
+
 void setup() {
   // put your setup code here, to run once:
   xAxis.attach(xServo);
   yAxis.attach(yServo);
+  pinMode(firePin, OUTPUT);
   Serial.begin(115200);
   Serial.setTimeout(10);
 }
@@ -37,6 +41,16 @@ void parseCommand(String data){
     break;
     case 's':
       turretSweep();
+    break;
+    case 'f':
+      // TODO: Take state from data
+      if(!cannonOn){
+        digitalWrite(firePin, HIGH);
+        cannonOn = true; 
+      } else {
+        digitalWrite(firePin, LOW);
+        cannonOn = false; 
+      }
     break;
     default:
       Serial.println("Invalid command");

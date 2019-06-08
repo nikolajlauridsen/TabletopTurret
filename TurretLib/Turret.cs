@@ -36,6 +36,11 @@ namespace TurretLib
             TurretPosition[1] = y;
         }
 
+        public void Fire()
+        {
+            _com.Write(new PriorityMessage("f", 1, 40));
+        }
+
         public void Activate()
         {
             IsActive = true;
